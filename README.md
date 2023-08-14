@@ -534,3 +534,31 @@ https://tech-mmmm.blogspot.com/2022/12/ossharbor.html
     Context "minikube" modified.
     Active namespace is "harbor".
     ```
+
+## コンテナイメージをPush
+
+Pushするコンテナイメージに対して、タグの設定を行う。タグは以下の形式で設定する。
+
+```
+[HarborのIPアドレスまたはFQDN]/[プロジェクト名]:[タグ名]
+```
+``````
+# docker tag oraclelinux:8.7 10.1.1.200/myproject/oraclelinux:8.7
+```
+
+タグを付与したコンテナイメージをPushする。
+
+```
+# docker push 10.1.1.200/myproject/oraclelinux:8.7
+```
+
+## HarborよりコンテナイメージをPull
+HarborよりコンテナイメージをPullする。
+
+```
+# docker pull 10.1.1.200/myproject/oraclelinux:8.7
+```
+```
+# docker images | grep oracle
+10.1.1.200/myproject/oraclelinux                     8.7             64a9493ed840   4 months ago    230MB
+```
